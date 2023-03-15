@@ -1,0 +1,36 @@
+.navHorizon {
+    height: 80px;
+    width: 100%;
+    background-color: var(--noir);
+}
+
+.navHorizon header {
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navHorizon img {
+    width: 178px;
+    height: 60.93px;
+    margin-left: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    color: var(--blanc);
+    font-size: 24px;
+    width: 70%;
+    margin-right: 70px;
+}
+
+.navigation {
+    text-decoration: none;
+    color: var(--blanc);
+}
+
+.navigation:hover {
+    color: var(--rouge);
+}

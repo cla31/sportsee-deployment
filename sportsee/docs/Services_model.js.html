@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Services/model.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Services/model.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { getDatas } from './fetch'
+import Activity from './Utils/Activity'
+import AverageSessions from './Utils/AverageSessions'
+import User from './Utils/User'
+import Performance from './Utils/Performance'
+
+/**
+ * It takes a user id, gets some data from an API or mocked data folder, formats it, and returns it.
+ * @param userId - the id of the user
+ * @returns An array of objects with user datas
+ */
+// let mockDatas = false
+
+
+// export const userDatas = async(userId) => {
+//         let url = `http://localhost:3000/user/${userId}`
+//         if (mockDatas) {
+//             url = '/MockDatas/userDatas.json'
+//         }
+//         const allUserDatas = await getDatas(url)
+//         const userInfos = new User(allUserDatas)
+//             // console.log("userInfos", userInfos)
+//         return userInfos
+//     }
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+
+export const userDatas = async(userId) => {
+    let url = '';
+    if (userId === '15') {
+        url = '/MockDatas/userDatas.json'
+    } else {
+        url = `http://localhost:3000/user/${userId}`
+            // console.log("id", id)
+    }
+
+    const allUserDatas = await getDatas(url)
+    const userInfos = new User(allUserDatas)
+        // console.log("userInfos", userInfos)
+    return userInfos
+}
+
+/**
+ * It takes a user id, gets some data from an API or mocked data folder, formats it, and returns it.
+ * @param id - the id of the user
+ * @returns An array of objects with user activities
+ */
+// export const userActivity = async(userId) => {
+//         let url = `http://localhost:3000/user/${userId}/activity`
+//         if (mockDatas) {
+//             console.log("id", userId)
+//             url = '/MockDatas/userActivities.json'
+//         }
+//         const allUserActivities = await getDatas(url)
+//         console.log("££££££££££ Ce qui arrive dans l'objet Activity", allUserActivities)
+//         const userActivityInfos = new Activity(allUserActivities)
+//             // console.log("userActivityInfos", userActivityInfos)
+//         return userActivityInfos
+//     }
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+
+export const userActivity = async(userId) => {
+    let url = '';
+    if (userId === '15') {
+        url = '/MockDatas/userActivities.json'
+    } else {
+        url = `http://localhost:3000/user/${userId}/activity`
+            // console.log("id", id)
+    }
+    const allUserActivities = await getDatas(url)
+        // console.log("££££££££££ Ce qui arrive dans l'objet Activity", allUserActivities)
+    const userActivityInfos = new Activity(allUserActivities)
+        // console.log("userActivityInfos", userActivityInfos)
+    return userActivityInfos
+}
+
+/**
+ * It takes a user id, gets some data from an API or mocked data folder, formats it, and returns it.
+ * @param userId - the id of the user
+ * @returns An array of objects with user averages sessions
+ */
+
+// export const userAverageSessions = async(userId) => {
+//         let url = `http://localhost:3000/user/${userId}/average-sessions`
+//         if (mockDatas) {
+//             url = '/MockDatas/userAverageSession.json'
+//             console.log("id", userId)
+//         }
+//         const allUserAverageSessions = await getDatas(url)
+//             // console.log("+++++++++++", allUserAverageSessions)
+//         const userAverageSessionsInfos = new AverageSessions(allUserAverageSessions)
+//             // console.log("userAverageSessionsInfos", userAverageSessionsInfos)
+//         return userAverageSessionsInfos
+//     }
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+
+export const userAverageSessions = async(userId) => {
+    let url = '';
+    if (userId === '15') {
+        url = '/MockDatas/userAverageSession.json'
+    } else {
+        url = `http://localhost:3000/user/${userId}/average-sessions`
+            // console.log("id", id)
+    }
+    const allUserAverageSessions = await getDatas(url)
+        // console.log("+++++++++++", allUserAverageSessions)
+    const userAverageSessionsInfos = new AverageSessions(allUserAverageSessions)
+        // console.log("userAverageSessionsInfos", userAverageSessionsInfos)
+    return userAverageSessionsInfos
+}
+
+/**
+ * It takes a user id, gets some data from an API or mocked data folder, formats it, and returns it.
+ * @param userId - the id of the user
+ * @returns An array of objects with user performances
+ */
+// export const userPerformance = async(userId) => {
+//         let url = `http://localhost:3000/user/${userId}/performance`
+//         if (mockDatas) {
+//             // console.log("id", userId)
+//             url = '/MockDatas/userPerformances.json'
+//         }
+//         const allUserPerformances = await getDatas(url)
+//             // console.log("*************", allUserPerformances)
+//         const userPerformancesInfos = new Performance(allUserPerformances)
+//             // console.log("allUserPerformances", userPerformancesInfos)
+//         return userPerformancesInfos
+//     }
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+//********************************************************************** */
+export const userPerformance = async(userId) => {
+    let url = '';
+    if (userId === '15') {
+        url = '/MockDatas/userPerformances.json'
+    } else {
+        url = `http://localhost:3000/user/${userId}/performance`
+            // console.log("id", userId)
+    }
+    const allUserPerformances = await getDatas(url)
+        // console.log("*************", allUserPerformances)
+    const userPerformancesInfos = new Performance(allUserPerformances)
+        // console.log("allUserPerformances", userPerformancesInfos)
+    return userPerformancesInfos
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ActivityGraph">ActivityGraph</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#getDatas">getDatas</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavHorizontale">NavHorizontale</a></li><li><a href="global.html#NavVerticale">NavVerticale</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#ScoreGraph">ScoreGraph</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#userActivity">userActivity</a></li><li><a href="global.html#userAverageSessions">userAverageSessions</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#userDatas">userDatas</a></li><li><a href="global.html#userPerformance">userPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Oct 27 2022 19:13:40 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 2px solid blue; */
+}
+
+.userCards {
+    margin-top: 80px;
+    display: flex;
+    gap: 30px;
+    /* border: 2px solid brown; */
+    margin-bottom: 20px;
+    list-style-type: none;
+}
+
+.userCardsTitle {
+    margin-top: 100px;
+}
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+    .userCards {
+        margin-top: 50px;
+        flex-direction: column;
+        gap: 45px;
+    }
+}

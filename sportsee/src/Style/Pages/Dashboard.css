@@ -1,0 +1,159 @@
+.wrapperNavDashboard {
+    /* border: green solid 2px; */
+    display: flex;
+    /* width: 1000px; */
+}
+
+.dashboard {
+    /* border: red solid 2px; */
+    margin: 50px 50px 0 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bonjour h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+    margin-top: 0px;
+}
+
+.bonjour p {
+    font-size: 18px;
+}
+
+.bonjour span {
+    color: var(--rouge)
+}
+
+
+/* Graphiques */
+
+.infosDashboard {
+    display: flex;
+    /* border: orange solid 2px; */
+}
+
+.graphiques {
+    width: 80%;
+    /* border: blue solid 2px; */
+}
+
+.graphActivity {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    margin-top: 40px;
+    background-color: var(--gris);
+    /* border: black solid 2px; */
+}
+
+
+/* Performances */
+
+.graphCarres {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    width: 100%;
+    /* border: red solid 2px; */
+}
+
+.sessions,
+.performance,
+.score {
+    width: 32%;
+    height: 300px;
+    border-radius: 5px;
+    /* border: red solid 2px; */
+}
+
+
+/* Vertical droite */
+
+.infosEffortsNutriments {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: 30px;
+    width: 30%;
+    height: 630px;
+    /* border: purple solid 2px; */
+}
+
+.calories,
+.proteines,
+.glucides,
+.lipides {
+    display: flex;
+    align-items: center;
+    padding-left: 35px;
+    background-color: var(--gris);
+    /* background-color: grey; */
+    width: 100%;
+    height: 135px;
+    border-radius: 5px;
+    /* border: pink solid 2px; */
+}
+
+.calories img,
+.proteines img,
+.glucides img,
+.lipides img {
+    width: 80px;
+    height: 80px;
+    /* border: rgb(160, 6, 119) solid 2px; */
+}
+
+.infos {
+    margin-left: 40px;
+    /* border: rgb(34, 89, 101) solid 2px; */
+}
+
+.infos p {
+    color: #74798c;
+    /* border: rgb(101, 56, 34) solid 2px; */
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1300px) {
+    .bonjour h1 {
+        font-size: 40px;
+        margin-top: 20px;
+    }
+    .bonjour p {
+        font-size: 16px;
+    }
+    .dashboard {
+        width: 900px;
+        margin-left: 0px;
+        /* border: orange solid 2px; */
+        margin-left: 50px;
+    }
+    .infosEffortsNutriments {
+        width: 19%;
+        height: 500px;
+    }
+    .calories,
+    .proteines,
+    .glucides,
+    .lipides {
+        height: 80px;
+    }
+    .calories img,
+    .proteines img,
+    .glucides img,
+    .lipides img {
+        margin-left: -20px;
+        width: 50px;
+        height: 50px;
+    }
+    .infos {
+        margin-left: 10px;
+    }
+    .infos h3 {
+        font-size: 15px;
+    }
+    .infos p {
+        font-size: 12px;
+    }
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Barchart/Sessions.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Barchart/Sessions.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react'
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Rectangle,
+} from 'recharts'
+
+/**
+ * @param {boolean}  [Props.active='true']
+ * @param {array}   [Props.payload=[]]
+ * @returns an active tooltip or null
+ */
+const CustomTooltip = ({ active, payload }) => {
+  if (active) {
+    return (
+      &lt;div className="customTooltipSession">
+        &lt;p className="tooltipDataSession">{`${payload[0].value} `}min&lt;/p>
+      &lt;/div>
+    )
+  }
+  return null
+}
+/**
+ * @returns a grey rectangle displayed with mouth moving over the chart
+ */
+const CustomCursor = ({ points }) => {
+  return (
+    &lt;Rectangle
+      fill="#000000"
+      opacity={0.2}
+      x={points[1].x}
+      width={1000}
+      height={300}
+    />
+  )
+}
+
+/**
+ * Display user's daily activity chart
+ * @component
+ * @param {Array} sessions - user sessions datas
+ * @returns {JSX.Element} Sessions component
+ */
+const Sessions = ({ sessions }) => {
+  //console.log(sessions)
+  return (
+    &lt;div className="squareGraph sessionGraph">
+      &lt;ResponsiveContainer width="100%" aspect={1}>
+        &lt;LineChart
+          style={{ backgroundColor: '#FF0000' }}
+          width={258}
+          height={263}
+          data={sessions}
+          margin={{
+            top: 50,
+            right: -2,
+            left: -60,
+            bottom: 10,
+          }}
+        >
+          &lt;CartesianGrid vertical={false} horizontal={false} />
+          &lt;XAxis
+            dataKey="day"
+            tickLine={false}
+            fillOpacity={0.5}
+            style={{ transform: 'scale(0.9)', transformOrigin: 'bottom' }}
+            tick={{ fill: '#FFFFFF', fontWeight: 500, fontSize: 12 }}
+            tickMargin={10}
+            axisLine={false}
+            interval="preserveStartEnd"
+          />
+          &lt;YAxis
+            axisLine={false}
+            tickLine={false}
+            tick={false}
+            domain={['dataMin - 5', 'dataMax + 5']}
+          />
+          &lt;Tooltip content={&lt;CustomTooltip />} cursor={&lt;CustomCursor />} />
+          &lt;Line
+            type="monotone"
+            dataKey="sessionLength"
+            stroke="#FFFFFF"
+            dot={false}
+            opacity={0.8}
+            strokeWidth={2}
+          />
+          &lt;text
+            className="graphTitle"
+            x="12%"
+            y="15%"
+            width={147}
+            height={48}
+            textAnchor="start"
+            dominantBaseline="middle"
+            fill="#FFFFFF"
+            style={{ fontWeight: 500, opacity: 0.5 }}
+          >
+            Durée moyenne des{' '}
+          &lt;/text>
+          &lt;text
+            className="graphTitle"
+            x="12%"
+            y="25%"
+            width={147}
+            height={48}
+            textAnchor="start"
+            dominantBaseline="middle"
+            fill="#FFFFFF"
+            style={{ fontWeight: 500, opacity: 0.5 }}
+          >
+            sessions
+          &lt;/text>
+        &lt;/LineChart>
+      &lt;/ResponsiveContainer>
+    &lt;/div>
+  )
+}
+
+export default Sessions
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ActivityGraph">ActivityGraph</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#getDatas">getDatas</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavHorizontale">NavHorizontale</a></li><li><a href="global.html#NavVerticale">NavVerticale</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#ScoreGraph">ScoreGraph</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#userActivity">userActivity</a></li><li><a href="global.html#userAverageSessions">userAverageSessions</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#userDatas">userDatas</a></li><li><a href="global.html#userPerformance">userPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Tue Oct 25 2022 04:22:39 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

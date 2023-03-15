@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Pages/Dashboard.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Pages/Dashboard.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useEffect, useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+import { userDatas } from '../Services/model'
+import { userActivity } from '../Services/model.js'
+import { userAverageSessions } from '../Services/model.js'
+import { userPerformance } from '../Services/model.js'
+import Activity from '../Components/Charts/Activity'
+import Performance from '../Components/Charts/Performance'
+import Sessions from '../Components/Charts/Sessions'
+import Score from '../Components/Charts/Score'
+import '../Style/Pages/Dashboard.css'
+import Calories from './../Assets/calories.png'
+import Proteines from './../Assets/proteines.png'
+import Glucides from './../Assets/glucides.png'
+import Lipides from './../Assets/lipides.png'
+import NavHorizontale from '../Components/NavHorizontale'
+import NavVerticale from '../Components/NavVerticale'
+
+/**
+ * Creation of the page with all the charts
+ * @returns {JSX.Element} Dashboard component
+ */
+
+const Dashboard = () => {
+  const { id } = useParams()
+  userDatas(id)
+  userActivity(id)
+  userAverageSessions(id)
+  userPerformance(id)
+  // console.log(id)
+
+  const navigate = useNavigate()
+
+  const [datas, setDatas] = useState({})
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect(() => {
+    ;(async () => {
+      try {
+        const user_Datas = await userDatas(id)
+        const user_Activity = await userActivity(id)
+        const user_Performance = await userPerformance(id)
+        const user_Sessions = await userAverageSessions(id)
+        setDatas({ user_Datas, user_Activity, user_Performance, user_Sessions })
+        setIsLoading(false)
+      } catch (error) {
+        console.log('=====error=====', error)
+        navigate('/Page404')
+      }
+    })()
+  }, [navigate, id])
+
+  return (
+    &lt;div>
+      &lt;NavHorizontale />
+      &lt;div className="wrapperNavDashboard">
+        &lt;NavVerticale />
+        &lt;div className="dashboard">
+          {isLoading ? (
+            'Datas..loading mais loader à mettre là '
+          ) : (
+            &lt;>
+              &lt;div className="bonjour">
+                &lt;h1>
+                  Bonjour {''}
+                  &lt;span>{datas.user_Datas.userFirstName}&lt;/span>
+                &lt;/h1>
+                &lt;p>Félicitation! Vous avez explosé vos objectifs hier 👏&lt;/p>
+              &lt;/div>
+              &lt;div className="infosDashboard">
+                &lt;section className="graphiques">
+                  &lt;div className="graphActivity">
+                    {/* {console.log(
+                      'Entrée composant Activity',
+                      datas.user_Activity.allDatasSessions
+                    )} */}
+                    &lt;Activity
+                      userActivity={datas.user_Activity.allDatasSessions}
+                    />
+                  &lt;/div>
+                  &lt;div className="graphCarres">
+                    &lt;div className="sessions">
+                      {/* {console.log(
+                        'Entrée composant sessions',
+                        datas.user_Sessions.sessionsAllDatas
+                      )} */}
+                      &lt;Sessions
+                        sessions={datas.user_Sessions.sessionsAllDatas}
+                      />
+                    &lt;/div>
+                    &lt;div className="performance">
+                      {/* {console.log(
+                        'Entrée composant performance',
+                        datas.user_Performance.AllPerformances
+                      )} */}
+                      &lt;Performance
+                        performance={datas.user_Performance.AllPerformances}
+                      />
+                    &lt;/div>
+                    &lt;div className="score">
+                      {/* {console.log(
+                        'Entrée composant score',
+                        datas.user_Datas.todayScore
+                      )} */}
+                      &lt;Score userMain={datas.user_Datas.todayScore} />
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/section>
+                &lt;section className="infosEffortsNutriments">
+                  &lt;div className="calories">
+                    &lt;img src={Calories} alt="" />
+                    &lt;div className="infos">
+                      &lt;h3>{datas.user_Datas.calorieCount}kCal&lt;/h3>
+                      &lt;p>Calories&lt;/p>
+                    &lt;/div>
+                  &lt;/div>
+                  &lt;div className="proteines">
+                    &lt;img src={Proteines} alt="" />
+                    &lt;div className="infos">
+                      &lt;h3>{datas.user_Datas.proteinCount}g&lt;/h3>
+                      &lt;p>Proteines&lt;/p>
+                    &lt;/div>
+                  &lt;/div>
+                  &lt;div className="glucides">
+                    &lt;img src={Glucides} alt="" />
+                    &lt;div className="infos">
+                      &lt;h3>{datas.user_Datas.carbohydrateCount}g&lt;/h3>
+                      &lt;p>Glucides&lt;/p>
+                    &lt;/div>
+                  &lt;/div>
+                  &lt;div className="lipides">
+                    &lt;img src={Lipides} alt="" />
+                    &lt;div className="infos">
+                      &lt;h3>{datas.user_Datas.lipidCount}g&lt;/h3>
+                      &lt;p>Lipides&lt;/p>
+                    &lt;/div>
+                  &lt;/div>
+                &lt;/section>
+              &lt;/div>
+            &lt;/>
+          )}
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  )
+}
+
+export default Dashboard
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#ActivityGraph">ActivityGraph</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#CustomCursor">CustomCursor</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#getDatas">getDatas</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#NavHorizontale">NavHorizontale</a></li><li><a href="global.html#NavVerticale">NavVerticale</a></li><li><a href="global.html#Page404">Page404</a></li><li><a href="global.html#Performance">Performance</a></li><li><a href="global.html#ScoreGraph">ScoreGraph</a></li><li><a href="global.html#Sessions">Sessions</a></li><li><a href="global.html#userActivity">userActivity</a></li><li><a href="global.html#userAverageSessions">userAverageSessions</a></li><li><a href="global.html#UserCard">UserCard</a></li><li><a href="global.html#userDatas">userDatas</a></li><li><a href="global.html#userPerformance">userPerformance</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.11</a> on Thu Oct 27 2022 19:13:40 GMT+0200 (heure d’été d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
