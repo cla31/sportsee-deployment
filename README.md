@@ -29,15 +29,6 @@ Use an API for a bank user account with React
 🚨 In order to publish the application online, this version only uses mocked data.<br/>
 <br/>
 To locally install the version using a backend and API calls, click [here](https://github.com/cla31/P12-SportSee) and follow the key steps.<br/>
-**Code Architecture:**<br/>
-![ARCHITECTURE-CODE](./archi.png)
-
-##
-
-To view the page online click :point_right: [here](https://sportsee-deployment.vercel.app)
-
-##
-
 **Application overview**:
 <br/>
 <br/>
