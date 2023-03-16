@@ -26,8 +26,7 @@ Use an API for a bank user account with React
 - Produce technical documentation for an application
   <br/>
   <br/>
-  ###
 🚨 In order to publish the application online, this version only uses mocked data.<br/>
 <br/>
 To locally install the version using a backend and API calls, click [here](https://github.com/cla31/P12-SportSee) and follow the key steps.<br/>
-  ###
+
