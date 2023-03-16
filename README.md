@@ -39,5 +39,5 @@ To view the page online click :point_right: [here](https://sportsee-deployment.v
 **Application overview**:
 <br/>
 <br/>
-![DESKTOP-VERSION](./images/dashboard.png)
+![DESKTOP-VERSION](./dashboard.png)
 ##
