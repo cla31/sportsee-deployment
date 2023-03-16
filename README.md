@@ -36,3 +36,8 @@ To locally install the version using a backend and API calls, click [here](https
 ##
 To view the page online click :point_right: [here](https://sportsee-deployment.vercel.app)
 ##
+**Application overview**:
+<br/>
+<br/>
+![DESKTOP-VERSION](./images/dashboard.png)
+##
