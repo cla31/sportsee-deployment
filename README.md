@@ -32,6 +32,6 @@ To locally install the version using a backend and API calls, click [here](https
 ##
 **Code Architecture:**<br/>
 <br/>
-![ARCHITECTURE-CODE](./images/archi.png)
+![ARCHITECTURE-CODE](./archi.png)
 ##
 
