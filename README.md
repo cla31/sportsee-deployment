@@ -30,7 +30,6 @@ Use an API for a bank user account with React
 <br/>
 To locally install the version using a backend and API calls, click [here](https://github.com/cla31/P12-SportSee) and follow the key steps.<br/>
 **Code Architecture:**<br/>
-<br/>
 ![ARCHITECTURE-CODE](./archi.png)
 
 ##
