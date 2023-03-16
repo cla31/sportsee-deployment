@@ -34,4 +34,5 @@ To locally install the version using a backend and API calls, click [here](https
 <br/>
 ![ARCHITECTURE-CODE](./archi.png)
 ##
-
+To view the page online click :point_right: [here](https://sportsee-deployment.vercel.app)
+##
